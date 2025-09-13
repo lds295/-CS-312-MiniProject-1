@@ -1,0 +1,37 @@
+
+<%- include("partials/header.ejs") %>
+
+<h1>My Video Blog</h1>
+
+<hr>
+
+<h2>Recent Posts</h2>
+<div class="posts-container">
+  <%# Use a forEach loop to iterate over the blogs array %>
+  <% blogs.forEach(blog => { %>
+    <article class="post">
+      <h3><%= blog.title %></h3>
+      <p>By: <%= blog.author %></p>
+      
+      <video width="400" controls>
+        <source src="/uploads/<%= blog.videoFilename %>" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      
+      <p>Posted on: <%= blog.createdAt.toLocaleDateString() %></p>
+
+      <%# Links/Buttons for Edit and Delete, using the unique blog.id %>
+      <div class="post-actions">
+        <a href="/edit/<%= blog.id %>" class="button edit-button">Edit</a>
+        
+        <%# Deletion requires a form to send a POST request %>
+        <form action="/delete/<%= blog.id %>" method="POST" style="display:inline;">
+          <button type="submit" class="button delete-button">Delete</button>
+        </form>
+      </div>
+    </article>
+  <% }) %>
+</div>
+
+
+  <%- include("partials/footer.ejs") %>

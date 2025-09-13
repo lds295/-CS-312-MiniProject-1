@@ -1,0 +1,46 @@
+<%- include("partials/header.ejs") %>
+
+
+  <h1>Wanna create your blog post?</h1>
+
+  <div class="blogContainer">
+     <form action="/upload" method="POST" enctype="multipart/form-data">
+        <div class="blogCreatorName">
+          <label for="userName">Creator's Name:</label>
+          <input 
+            type="text" 
+            id="userName" 
+            name="userName" 
+            placeholder="Enter your name" 
+            required 
+          />
+      
+        </div>
+        <div class="blogCreatorTitle">
+          <label for="blogTitle">Blog Title</label>
+          <input 
+            type="text" 
+            id="blogTitle" 
+            name="blogTitle" 
+            placeholder="Enter the title for your blog" 
+            required 
+          />
+      
+        </div>
+        <div class="blogVideo">
+           <label for="userVideo">Select a video:</label>
+            <input 
+              type="file" 
+              id="userVideo" 
+              name="userVideo" 
+              accept="video/*"  
+              required
+              />
+        </div>
+       
+        <button type="submit">Submit Blog Post</button>
+      
+  </form>
+  </div>
+
+  <%- include("partials/footer.ejs") %>

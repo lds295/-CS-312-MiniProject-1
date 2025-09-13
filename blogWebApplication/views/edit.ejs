@@ -1,0 +1,21 @@
+<%- include("partials/header.ejs") %>
+
+<h1>Edit Post</h1>
+
+<%# The form's action points to the update route with the specific blog ID %>
+<form action="/update/<%= blog.id %>" method="POST">
+  <div>
+    <label>Creator's Name:</label>
+    <input type="text" name="userName" value="<%= blog.author %>" required>
+  </div>
+  <div>
+    <label>Blog Title:</label>
+    <input type="text" name="blogTitle" value="<%= blog.title %>" required>
+  </div>
+  
+  <p>Note: Video cannot be changed. Re-create post to upload a new video.</p>
+
+  <button type="submit">Save Changes</button>
+</form>
+
+<%- include("partials/footer.ejs") %>
